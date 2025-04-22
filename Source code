@@ -1,0 +1,33 @@
+import random
+import string
+print("Welcome to passowrds generator!")
+
+lenth = int(input("Enter the total number of characters in the passoword: "))
+
+NOL = int(input("Enter the number of letters in the Password: "))
+NON = int(input("Enter the number of numbers in the Password: "))
+NOS = int(input("Enter the number of symbols in the Password: "))
+
+totaly = NOL + NON + NOS
+
+if lenth != totaly:
+    print("Invalid input. The sum of letters, numbers, and symbols doesn't match the password length.")
+
+else:
+   letters = string.ascii_letters
+   random_letters = random.choices(letters, k= NOL)
+
+   numbers = string.digits
+   random_number = random.choices(numbers, k= NON)
+
+   symbols = string.punctuation
+   random_symbols = random.choices(symbols, k= NOS)
+
+   total_random = random_letters + random_number + random_symbols
+
+   x = list(total_random)
+   random.shuffle(x)
+   xx = "".join(x)
+
+   print("Your password is:")
+   print(xx)
